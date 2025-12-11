@@ -45,12 +45,7 @@ footer {
 }
 .tab-content{
     background-color: #FFFFFF !important;
-    border: 2px solid black ;
+    border: 2px solid;
     border-radius: 10px;
-}
-.lista{
-    background-color: var(--cor-de-fundo);
-    color: white;
-    margin-top: 10px;
-    text-align:center ;
+    box-shadow: black 2px 2px 5px ;
 }

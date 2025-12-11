@@ -30,6 +30,9 @@
                     <li class="nav-item">
                         <a class="nav-link" data-bs-toggle="pill" href="#menu1"><i class="bi bi-cart-fill"></i> Lista de
                             compras</a>
+
+
+                            
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" data-bs-toggle="pill" href="#menu2"><i class="bi bi-box-fill"></i>
@@ -39,7 +42,42 @@
 
                 <!-- Tab panes -->
                 <div class="tab-content">
-                    <div class="tab-pane container active" id="menu1"><h1 class="lista">arroz</h1></div>
+                    <div class="tab-pane container active" id="menu1">
+                <!--codigo adicionado dia 11/12-->
+                <!--codigo pra chamar a função de lista do back-end-->
+[ <div class="tab-pane container active" id="menu1">
+    
+    <div class="lista-mestra-layout">
+
+        <div class="itens-pendentes-coluna">
+            {% for item in lista_de_compras %}
+                {% if not item.comprado %}
+                    <div class="item-caixa">
+                        <input type="checkbox" id="item-{{ item.id }}" class="checkbox-pendente">
+                        <label for="item-{{ item.id }}">{{ item.nome }} ({{ item.quantidade }})</label>
+                    </div>
+                {% endif %}
+            {% endfor %}
+            
+        </div>
+
+        <div class="itens-comprados-coluna">
+            {% for item in lista_de_compras %}
+                {% if item.comprado %}
+                    <div class="item-caixa-comprado">
+                        <input type="checkbox" checked disabled>
+                        <label>{{ item.nome }}</label>
+                    </div>
+                {% endif %}
+            {% endfor %}
+            
+        </div>
+        
+    </div>
+    
+</div>
+
+                    </div>
                     <div class="tab-pane container fade" id="menu2">...</div>
                 </div>
             </div>

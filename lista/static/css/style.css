@@ -4,10 +4,12 @@
 }
 
 :root {
-    --cor-de-fundo: #FFF0D5;
-    --cor-rodape: #EEB90F;
-    --cor-cabecalho-secao: #FEEAA9;
-    --cor-fundo-secao: #FFFFFF;
+    --cor-de-fundo: #fff0d5;
+    --cor-rodape: #eeb90f;
+    --cor-cabecalho-secao: #feeaa9;
+    --cor-fundo-secao: #ffffff;
+    --cor-borda-item-comprado: #ddd;
+    --cor-texto-comprado: #888;
 }
 
 .cabecalho {
@@ -16,7 +18,7 @@
 }
 
 .fw-900 {
-    font-weight: 900 !important
+    font-weight: 900 !important;
 }
 
 main {
@@ -43,9 +45,65 @@ footer {
     background-color: var(--cor-rodape);
     color: #ffffff;
 }
-.tab-content{
-    background-color: #FFFFFF !important;
-    border: 2px solid;
+
+.tab-content {
+    background-color: var(--cor-fundo-secao) !important;
+    border: none;
     border-radius: 10px;
-    box-shadow: black 2px 2px 5px ;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    padding: 20px;
+}
+
+.itens-pendentes-coluna,
+.itens-comprados-coluna {
+    flex: 1;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+}
+
+.itens-pendentes-coluna {
+    background-color: var(--cor-cabecalho-secao);
+    position: relative;
+}
+
+.itens-comprados-coluna {
+    background-color: var(--cor-cabecalho-secao);
+    position: relative;
+}
+
+.botoes-acao {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 5px;
+}
+
+.btn-acao {
+    background-color: var(--cor-rodape);
+    color: white;
+    border: none;
+    padding: 5px 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-acao:hover {
+    background-color: #d1a00a;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:active {
+    color: var(--cor-rodape);
+    font-weight: 900;
+}
+
+li {
+    list-style-type: none;
 }

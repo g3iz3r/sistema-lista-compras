@@ -25,14 +25,13 @@
         </div>
         <div class="px-5">
             <div class="principal">
-                <!-- Nav pills -->
                 <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-bs-toggle="pill" href="#home">Menu</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" data-bs-toggle="pill" href="#menu1"><i class="bi bi-cart-fill"></i> Lista de
                             compras</a>
-
-
-                            
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" data-bs-toggle="pill" href="#menu2"><i class="bi bi-box-fill"></i>
@@ -42,46 +41,74 @@
 
                 <!-- Tab panes -->
                 <div class="tab-content">
-                    <div class="tab-pane container active" id="menu1">
-                <!--codigo adicionado dia 11/12-->
-                <!--codigo pra chamar a função de lista do back-end-->
-[ <div class="tab-pane container active" id="menu1">
-    
-    <div class="lista-mestra-layout">
-
-        <div class="itens-pendentes-coluna">
-            {% for item in lista_de_compras %}
-                {% if not item.comprado %}
-                    <div class="item-caixa">
-                        <input type="checkbox" id="item-{{ item.id }}" class="checkbox-pendente">
-                        <label for="item-{{ item.id }}">{{ item.nome }} ({{ item.quantidade }})</label>
+                    <div class="tab-pane container active" id="home">bem vindo</div>
+                    <div class="tab-pane container fade" id="menu1">
+                        <div class="row">
+                            <!-- secao itens pendentes -->
+                            <div class="itens-pendentes-coluna col-6 m-1">
+                                <h5 class="fw-900 mb-3">Itens Pendentes</h5>
+                                <div class="botoes-acao">
+                                    <button class="btn-acao" type="button" title="Compartilhar Lista">
+                                        <i class="bi bi-share-fill"></i>
+                                    </button>
+                                    <button class="btn-acao" type="button" title="Download da Lista">
+                                        <i class="bi bi-cloud-arrow-down-fill"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- secao itens comprados -->
+                            <div class="itens-comprados-coluna col-6 m-1">
+                                <h5 class="fw-900 mb-3">Itens Comprados</h5>
+                            </div>
+                        </div>
                     </div>
-                {% endif %}
-            {% endfor %}
-            
-        </div>
-
-        <div class="itens-comprados-coluna">
-            {% for item in lista_de_compras %}
-                {% if item.comprado %}
-                    <div class="item-caixa-comprado">
-                        <input type="checkbox" checked disabled>
-                        <label>{{ item.nome }}</label>
+                    <div class="tab-pane container fade" id="menu2">
+                        <div class="row">
+                            <!-- secao categorias -->
+                            <div class="itens-pendentes-coluna col-6 m-1">
+                                <div class="row align-items-start">
+                                    <h5 class="fw-900 mb-3">Categorias</h5>
+                                    <ul>
+                                        <li><a href="#" onclick="return false">Laticínios</a></li>
+                                        <li><a href="#" onclick="return false">Verduras</a></li>
+                                        <li><a href="#" onclick="return false">Guloseimas</a></li>
+                                        <li><a href="#" onclick="return false">Materiais de limpeza</a></li>
+                                        <li><a href="#" onclick="return false">Açougue</a></li>
+                                        <li><a href="#" onclick="return false">Higiene pessoal</a></li>
+                                        <li><a href="#" onclick="return false">Bebidas</a></li>
+                                        <li><a href="#" onclick="return false">Frios</a></li>
+                                        <li><a href="#" onclick="return false">Padarias</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- secao itens -->
+                            <div class="itens-comprados-coluna col-6 m-1">
+                                <div class="row align-items-start">
+                                    <h5 class="fw-900 mb-3">Itens</h5>
+                                    <ul>
+                                        <li><input type="checkbox" id="bucha" name="bucha" value="bucha">
+                                            <label for="bucha">Bucha</label><br>
+                                        </li>
+                                        <li><input type="checkbox" id="cif" name="cif" value="cif">
+                                            <label for="cif">Cif</label><br>
+                                        </li>
+                                        <li><input type="checkbox" id="Detergente" name="Detergente" value="Detergente">
+                                            <label for="Detergente">Detergente</label><br>
+                                        </li>
+                                        <li><input type="checkbox" id="sabão" name="sabão" value="produtos">
+                                            <label for="sabão">Sabão em pó</label><br>
+                                        </li>
+                                        <li><input type="checkbox" id="Amaciante" name="Amaciante" value="Amaciante">
+                                            <label for="Amaciante"> Amaciante</label><br>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                {% endif %}
-            {% endfor %}
-            
-        </div>
-        
-    </div>
-    
-</div>
-
-                    </div>
-                    <div class="tab-pane container fade" id="menu2">...</div>
                 </div>
-            </div>
-        </div>
+
+
 
     </main>
 

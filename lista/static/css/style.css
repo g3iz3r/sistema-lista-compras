@@ -48,7 +48,6 @@ footer {
 
 .tab-content {
     background-color: var(--cor-fundo-secao) !important;
-    border: none;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     padding: 20px;
@@ -59,23 +58,18 @@ footer {
     flex: 1;
     padding: 10px;
     border-radius: 5px;
-    display: flex;
+    display: block;
 }
 
 .itens-pendentes-coluna {
     background-color: var(--cor-cabecalho-secao);
-    position: relative;
 }
 
 .itens-comprados-coluna {
     background-color: var(--cor-cabecalho-secao);
-    position: relative;
 }
 
 .botoes-acao {
-    position: absolute;
-    top: 10px;
-    right: 10px;
     display: flex;
     gap: 5px;
 }
@@ -84,7 +78,6 @@ footer {
     background-color: var(--cor-rodape);
     color: white;
     border: none;
-    padding: 5px 8px;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
@@ -101,9 +94,74 @@ a {
 
 a:active {
     color: var(--cor-rodape);
-    font-weight: 900;
 }
 
 li {
     list-style-type: none;
+}
+
+.custom-checkbox input {
+    display: none;
+}
+
+.custom-checkbox input+label:before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    background-color: white;
+    border: 2px solid var(--cor-rodape);
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+    margin-bottom: 4px;
+}
+
+.custom-checkbox input:checked+label:before {
+    background-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 10 10'%3E%3Cg class='nc-icon-wrapper' stroke-width='1' fill='%23555555'%3E%3Cpath fill='none' stroke='%23FFFFFF' stroke-linecap='round' stroke-linejoin='round' stroke-miterlimit='10' data-cap='butt' d='M2.83 4.72l1.58 1.58 2.83-2.83'/%3E%3C/g%3E%3C/svg%3E");
+    background-color: var(--cor-rodape);
+    background-position: center;
+}
+
+.box-item {
+    background-color: white;
+    border-radius: 10px;
+    padding: 3px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 10px;
+    margin: 10px;
+}
+
+.box-item span {
+    color: #818181;
+    font-size: 0.8rem;
+}
+
+.btn-qtd {
+    background-color: var(--cor-rodape);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    font-weight: bold;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin: 0.5px;
+}
+
+.btn-qtd:hover {
+    background-color: #d1a00a;
+}
+
+.item-riscado label {
+    text-decoration: line-through;
+    color: black;
+}
+
+.item-riscado {
+    opacity: 0.7;
 }

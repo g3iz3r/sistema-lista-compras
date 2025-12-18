@@ -1,20 +1,24 @@
 from django.contrib import admin
-
-# Register your models here.
-from django.contrib import admin
 from .models import Categoria, Produto, ItemLista
 
-class ItemListaAdmin(admin.ModelAdmin):
-    list_display = ('usuario', 'produto', 'quantidade', 'comprado')
-    list_filter = ('usuario', 'comprado', 'produto__categoria')
-    search_fields = ('produto__nome', 'usuario__username')
 
+@admin.register(Categoria)
+class CategoriaAdmin(admin.ModelAdmin):
+    list_display = ('nome',)
+    search_fields = ('nome',)
+
+
+@admin.register(Produto)
 class ProdutoAdmin(admin.ModelAdmin):
     list_display = ('nome', 'categoria')
     list_filter = ('categoria',)
     search_fields = ('nome',)
 
 
-admin.site.register(Categoria)
-admin.site.register(Produto, ProdutoAdmin)
-admin.site.register(ItemLista, ItemListaAdmin)
+@admin.register(ItemLista)
+class ItemListaAdmin(admin.ModelAdmin):
+    list_display = ('usuario', 'produto', 'quantidade',
+                    'comprado', 'criado_em')
+    list_filter = ('usuario', 'comprado', 'criado_em')
+    search_fields = ('usuario__username', 'produto__nome')
+    readonly_fields = ('criado_em', 'atualizado_em')
